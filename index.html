@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The EU sovereign cloud stack — NIS2, SEAL and CADA</title>
+<meta name="description" content="A reference comparison of the EU cloud regulatory stack: NIS2 the cybersecurity floor, the SEAL sovereignty framework as the measure, and CADA the procurement gate, with adjacent instruments.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --page:#f4f6f8; --card:#ffffff; --inset:#f6f7f9; --bd:#e3e6ea; --bd2:#cfd4db;
+  --ink:#16263e; --tp:#1a2433; --ts:#54607240; --ts:#546072; --tm:#8a93a1;
+  --gn-bg:#e3f4ee; --gn-tx:#0f6e56; --bl-bg:#e7f1fb; --bl-tx:#185fa5; --bl-bd:#2f7fd1;
+  --am-bg:#faeeda; --am-tx:#8a530c; --gy-bg:#eceef1; --gy-tx:#5b6473;
+  --hl-bg:#eeedfe; --hl-tx:#3c3489; --hl-bd:#7f77dd; --spine:#d6dae1;
+  --serif:"Source Serif 4",Georgia,serif; --sans:"Inter",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --page:#10141b; --card:#1a2029; --inset:#161b22; --bd:#2b323d; --bd2:#3a4350;
+    --ink:#dce6f2; --tp:#eef1f5; --ts:#aab2c0; --tm:#7d8693;
+    --gn-bg:#103f34; --gn-tx:#8fdcc3; --bl-bg:#0e3c6b; --bl-tx:#abcdf2; --bl-bd:#3f8de0;
+    --am-bg:#523008; --am-tx:#f4c578; --gy-bg:#262c35; --gy-tx:#c2cad6;
+    --hl-bg:#272257; --hl-tx:#cac6f4; --hl-bd:#8079e0; --spine:#333b47;
+  }
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--page);color:var(--tp);font-family:var(--sans);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:920px;margin:0 auto;padding:64px 24px 80px;}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--tm);
+  font-weight:500;margin:0 0 14px;}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,5vw,46px);line-height:1.12;
+  letter-spacing:-.01em;margin:0 0 18px;color:var(--ink);}
+.stand{font-size:18px;color:var(--ts);max-width:60ch;margin:0 0 28px;line-height:1.55;}
+.stand b{color:var(--tp);font-weight:600;}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--ts);
+  padding:16px 0 4px;border-top:1px solid var(--bd);margin-top:8px;}
+.legend span{display:inline-flex;align-items:center;gap:7px;}
+.pill{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border-radius:999px;
+  font-size:12px;font-weight:500;white-space:nowrap;}
+.gn{background:var(--gn-bg);color:var(--gn-tx);}
+.bl{background:var(--bl-bg);color:var(--bl-tx);}
+.am{background:var(--am-bg);color:var(--am-tx);}
+.gy{background:var(--gy-bg);color:var(--gy-tx);}
+
+.stack{position:relative;margin:40px 0 0;padding-left:40px;}
+.stack::before{content:"";position:absolute;left:13px;top:26px;bottom:26px;width:2px;
+  background:var(--spine);border-radius:2px;}
+.tier{position:relative;background:var(--card);border:1px solid var(--bd);border-radius:16px;
+  padding:24px 26px;margin-bottom:18px;}
+.tier::before{content:"";position:absolute;left:-33px;top:28px;width:14px;height:14px;
+  border-radius:50%;background:var(--card);border:3px solid var(--bd2);}
+.tier.gate{border:2px solid var(--bl-bd);}
+.tier.gate::before{border-color:var(--bl-bd);}
+.tier.floor::before{border-color:var(--gn-tx);}
+.thead{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:14px;}
+.alt{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--tm);
+  font-weight:600;margin:0 0 8px;}
+.fname{font-size:21px;font-weight:600;margin:0;letter-spacing:-.01em;color:var(--tp);}
+.fref{font-size:14px;color:var(--tm);margin:3px 0 0;}
+.lede{font-size:16px;margin:0 0 16px;line-height:1.55;}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-bottom:16px;}
+.lbl{font-size:12px;color:var(--tm);margin:0 0 3px;letter-spacing:.02em;}
+.val{font-size:14px;color:var(--ts);margin:0;line-height:1.5;}
+.rele{border-radius:12px;padding:14px 16px;background:var(--inset);}
+.rele.accent{background:var(--bl-bg);}
+.rele .rt{font-size:11px;font-weight:600;letter-spacing:.04em;margin:0 0 4px;}
+.rele p{margin:0;font-size:14px;line-height:1.55;}
+.rele.accent .rt,.rele.accent p{color:var(--bl-tx);}
+.rele .rt{color:var(--hl-tx);} .rele p{color:var(--ts);}
+
+.drawer{margin-top:18px;}
+.dbtn{width:100%;text-align:left;font-family:var(--sans);font-size:14px;font-weight:500;
+  color:var(--hl-tx);background:var(--inset);border:1px solid var(--bd);border-radius:12px;
+  padding:13px 16px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;
+  gap:10px;transition:border-color .15s;}
+.dbtn:hover,.dbtn:focus-visible{border-color:var(--hl-bd);outline:none;}
+.chev{transition:transform .2s;font-size:13px;}
+.dpanel{margin-top:16px;}
+.dh{font-size:14px;font-weight:600;margin:0 0 10px;color:var(--tp);}
+.level{display:flex;gap:12px;align-items:flex-start;background:var(--inset);
+  border:1px solid var(--bd);border-radius:10px;padding:10px 12px;margin-bottom:7px;}
+.level.thr{background:var(--gn-bg);border-color:var(--gn-tx);}
+.level.top{background:var(--hl-bg);border-color:var(--hl-bd);}
+.lname{font-size:13px;font-weight:600;min-width:58px;color:var(--tm);}
+.level.thr .lname{color:var(--gn-tx);} .level.top .lname{color:var(--hl-tx);}
+.ltxt{font-size:13px;color:var(--ts);line-height:1.45;}
+.level.thr .ltxt{color:var(--gn-tx);} .level.top .ltxt{color:var(--hl-tx);}
+.sov{margin-bottom:9px;}
+.sovhd{display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;}
+.sovhd .nm{color:var(--ts);} .sovhd .wt{color:var(--tm);}
+.sov.key .nm,.sov.key .wt{color:var(--hl-tx);font-weight:500;}
+.track{height:7px;background:var(--gy-bg);border-radius:4px;overflow:hidden;}
+.bar{height:7px;border-radius:4px;background:var(--bd2);}
+.sov.key .bar{background:var(--hl-bd);}
+.note{font-size:13px;color:var(--tm);margin:12px 0 0;line-height:1.5;}
+
+.adj-h{font-size:13px;color:var(--tm);font-weight:600;margin:36px 0 16px;
+  padding-top:22px;border-top:1px solid var(--bd);}
+.adjgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
+.acard{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:18px 20px;}
+.atop{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px;}
+.an{font-size:16px;font-weight:600;margin:0;} .ar{font-size:12px;color:var(--tm);margin:2px 0 0;}
+.adesc{font-size:14px;color:var(--ts);margin:0 0 10px;line-height:1.5;}
+.anote{font-size:13px;color:var(--tm);margin:0;line-height:1.5;}
+.anote b{color:var(--hl-tx);font-weight:500;}
+
+footer{margin-top:48px;padding-top:22px;border-top:1px solid var(--bd);
+  font-size:13px;color:var(--tm);line-height:1.6;}
+footer a{color:var(--bl-tx);}
+@media (max-width:600px){
+  .wrap{padding:44px 18px 60px;}
+  .stack{padding-left:0;} .stack::before{display:none;} .tier::before{display:none;}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <p class="eyebrow">Regulatory reference · June 2026</p>
+  <h1>The EU sovereign cloud stack</h1>
+  <p class="stand">Three instruments that govern cloud for European public bodies, read as a building. <b>NIS2</b> is the fire code every structure must meet. The <b>SEAL framework</b> is the surveyor's instrument that scores how sovereign a service is. <b>CADA</b> is the planning law that decides which buildings the state may buy. One sets a floor, one measures, one buys.</p>
+
+  <div class="legend">
+    <span><span class="pill gn">In force</span> binding now</span>
+    <span><span class="pill bl">Voluntary</span> a tool, not yet a duty</span>
+    <span><span class="pill am">Proposal</span> draft, subject to trilogue</span>
+  </div>
+
+  <div class="stack">
+
+    <section class="tier gate">
+      <div class="thead">
+        <div>
+          <p class="alt">The gate · on top</p>
+          <p class="fname">CADA</p>
+          <p class="fref">Cloud and AI Development Act</p>
+        </div>
+        <span class="pill am">Proposal, 3 Jun 2026</span>
+      </div>
+      <p class="lede">A Regulation that codifies the sovereignty framework into four binding Union assurance levels, tied to public procurement, plus Union added value criteria and data-centre acceleration.</p>
+      <div class="grid2">
+        <div><p class="lbl">Purpose</p><p class="val">Turn voluntary sovereignty scoring into a procurement gate, and expand EU compute capacity.</p></div>
+        <div><p class="lbl">Who it binds</p><p class="val">All cloud providers serving the EU public sector. The four tiers map onto SEAL.</p></div>
+      </div>
+      <div class="rele accent">
+        <p class="rt">Why it matters</p>
+        <p>Level 4 demands full EU ownership, EU-cleared personnel and no third-country interference. It is the point where sovereignty becomes a structural requirement rather than a contractual promise. US hyperscalers are locked out of Level 4 by CLOUD Act exposure.</p>
+      </div>
+    </section>
+
+    <section class="tier measure">
+      <div class="thead">
+        <div>
+          <p class="alt">The measure · in the middle</p>
+          <p class="fname">EU Cloud Sovereignty Framework / SEAL</p>
+          <p class="fref">Commission scoring tool (CSF)</p>
+        </div>
+        <span class="pill bl">Voluntary</span>
+      </div>
+      <p class="lede">A scoring methodology. SEAL ranks services from SEAL-0 to SEAL-4 across eight weighted SOV objectives.</p>
+      <div class="grid2">
+        <div><p class="lbl">Purpose</p><p class="val">Give "how sovereign is this service" a rankable number for procurement.</p></div>
+        <div><p class="lbl">Who it binds</p><p class="val">Providers bidding for Commission and public-sector work. Scored the EUR 180m award in April 2026.</p></div>
+      </div>
+      <div class="rele">
+        <p class="rt">Why it matters</p>
+        <p>The first auditable definition of cloud sovereignty, precise enough to be ranked and used as a procurement filter. The S3NS award showed the scale can still be contested at the margins.</p>
+      </div>
+
+      <div class="drawer">
+        <button class="dbtn" id="seal-toggle" aria-expanded="false" aria-controls="seal-layers">
+          <span>Explode into the SEAL layers: five levels and eight objectives</span>
+          <span class="chev" id="seal-chev" aria-hidden="true">&#9660;</span>
+        </button>
+        <div class="dpanel" id="seal-layers">
+          <p class="dh">Five assurance levels</p>
+          <div class="level"><span class="lname">SEAL-0</span><span class="ltxt">No sovereignty. Full dependence on third countries, no protection from extraterritorial intervention.</span></div>
+          <div class="level"><span class="lname">SEAL-1</span><span class="ltxt">Jurisdiction. EU law applies to the contract, but technical control stays external.</span></div>
+          <div class="level thr"><span class="lname">SEAL-2</span><span class="ltxt">Data sovereignty. Data and key management in EU hands. Tender minimum threshold.</span></div>
+          <div class="level"><span class="lname">SEAL-3</span><span class="ltxt">Digital resilience. Immune to disruption from non-EU supply chains, EU staff can run it independently.</span></div>
+          <div class="level top"><span class="lname">SEAL-4</span><span class="ltxt">Full digital sovereignty. Complete EU supply chain, chip to software, no third-country dependency. Equivalent to CADA Level 4.</span></div>
+
+          <p class="dh" style="margin-top:20px;">Eight SOV objectives, weighted to 100 percent</p>
+          <div class="sov key"><div class="sovhd"><span class="nm">SOV-5 Supply chain</span><span class="wt">20%</span></div><div class="track"><div class="bar" style="width:100%"></div></div></div>
+          <div class="sov key"><div class="sovhd"><span class="nm">SOV-1 Strategic, EU ownership</span><span class="wt">15%</span></div><div class="track"><div class="bar" style="width:75%"></div></div></div>
+          <div class="sov key"><div class="sovhd"><span class="nm">SOV-4 Operational, EU staff</span><span class="wt">15%</span></div><div class="track"><div class="bar" style="width:75%"></div></div></div>
+          <div class="sov key"><div class="sovhd"><span class="nm">SOV-6 Technology, open and portable</span><span class="wt">15%</span></div><div class="track"><div class="bar" style="width:75%"></div></div></div>
+          <div class="sov key"><div class="sovhd"><span class="nm">SOV-2 Legal, insulation from foreign law</span><span class="wt">10%</span></div><div class="track"><div class="bar" style="width:50%"></div></div></div>
+          <div class="sov"><div class="sovhd"><span class="nm">SOV-3 Data and AI</span><span class="wt">10%</span></div><div class="track"><div class="bar" style="width:50%"></div></div></div>
+          <div class="sov"><div class="sovhd"><span class="nm">SOV-7 Security and compliance</span><span class="wt">10%</span></div><div class="track"><div class="bar" style="width:50%"></div></div></div>
+          <div class="sov"><div class="sovhd"><span class="nm">SOV-8 Environmental</span><span class="wt">5%</span></div><div class="track"><div class="bar" style="width:25%"></div></div></div>
+          <p class="note">The highlighted objectives are those most shaped by ownership and architecture. The catch sits in the heaviest one: SOV-5 supply chain carries 20 percent and is the hardest for any European integrator to win, because it reaches down to chip origin.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tier floor">
+      <div class="thead">
+        <div>
+          <p class="alt">The floor · on the ground</p>
+          <p class="fname">NIS2</p>
+          <p class="fref">Directive (EU) 2022/2555</p>
+        </div>
+        <span class="pill gn">In force</span>
+      </div>
+      <p class="lede">Cybersecurity baseline: risk management, incident reporting, supply-chain security, board accountability.</p>
+      <div class="grid2">
+        <div><p class="lbl">Purpose</p><p class="val">Raise cyber hygiene across essential and important entities.</p></div>
+        <div><p class="lbl">Who it binds</p><p class="val">18 sectors: energy, transport, health, public admin, digital infrastructure.</p></div>
+      </div>
+      <div class="rele">
+        <p class="rt">Why it matters</p>
+        <p>A baseline obligation, not a sovereignty differentiator. Regulated-sector cloud has to meet it regardless of provider, which makes compliance table stakes rather than a selling point.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <p class="adj-h">Adjacent instruments you will keep bumping into</p>
+  <div class="adjgrid">
+    <div class="acard">
+      <div class="atop"><div><p class="an">EUCS</p><p class="ar">ENISA cloud certification scheme</p></div><span class="pill am">Stalled</span></div>
+      <p class="adesc">Certification under the Cybersecurity Act, Basic to High tiers.</p>
+      <p class="anote"><b>Note:</b> the sovereignty fight that paralysed it has moved into CADA, which aligns with and effectively supersedes it at the top tiers.</p>
+    </div>
+    <div class="acard">
+      <div class="atop"><div><p class="an">DORA</p><p class="ar">Regulation (EU) 2022/2554</p></div><span class="pill gn">17 Jan 2025</span></div>
+      <p class="adesc">Operational resilience for finance: ICT risk, third-party oversight, resilience testing.</p>
+      <p class="anote"><b>Note:</b> sits on top of NIS2 for financial entities. The third-party oversight regime is where cloud ownership questions surface.</p>
+    </div>
+    <div class="acard">
+      <div class="atop"><div><p class="an">SecNumCloud</p><p class="ar">France, ANSSI</p></div><span class="pill gn">National</span></div>
+      <p class="adesc">National qualification with hard immunity-from-extraterritorial-law requirements.</p>
+      <p class="anote"><b>Note:</b> the genetic ancestor of CADA's four-level logic. Several European providers already hold the qualification.</p>
+    </div>
+    <div class="acard">
+      <div class="atop"><div><p class="an">AI Act</p><p class="ar">Regulation (EU) 2024/1689</p></div><span class="pill gn">Phasing</span></div>
+      <p class="adesc">Risk-based governance of AI systems, applying in stages to 2027.</p>
+      <p class="anote"><b>Note:</b> adjacent, but CADA borrows its "AI system" definition. Relevant once a platform hosts AI workloads.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Compiled from the European Commission Cloud Sovereignty Framework and the Cloud and AI Development Act proposal of 3 June 2026. CADA is a legislative proposal and its final form may change in trilogue. SEAL levels and SOV weightings reflect the framework as applied to the April 2026 Commission award. Last reviewed 28 June 2026.</p>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var btn=document.getElementById('seal-toggle');
+  var panel=document.getElementById('seal-layers');
+  var chev=document.getElementById('seal-chev');
+  if(!btn||!panel){return;}
+  panel.style.display='none';
+  btn.addEventListener('click',function(){
+    var open=panel.style.display!=='none';
+    panel.style.display=open?'none':'block';
+    btn.setAttribute('aria-expanded',open?'false':'true');
+    if(chev){chev.style.transform=open?'rotate(0deg)':'rotate(180deg)';}
+  });
+})();
+</script>
+</body>
+</html>
