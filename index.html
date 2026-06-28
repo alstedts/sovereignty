@@ -163,6 +163,21 @@ footer a{color:var(--bl-tx);}
         <p class="rt">Why it matters</p>
         <p>Level 4 demands full EU ownership, EU-cleared personnel and no third-country interference. It is the point where sovereignty becomes a structural requirement rather than a contractual promise. US hyperscalers are locked out of Level 4 by CLOUD Act exposure.</p>
       </div>
+
+      <div class="drawer">
+        <button class="dbtn" id="cada-toggle" aria-expanded="false" aria-controls="cada-layers">
+          <span>Explode into CADA's four Union assurance levels</span>
+          <span class="chev" id="cada-chev" aria-hidden="true">&#9660;</span>
+        </button>
+        <div class="dpanel" id="cada-layers">
+          <p class="dh">Four Union assurance levels</p>
+          <div class="level"><span class="lname">L1</span><span class="ltxt">Baseline. An EU entity, which may be the EU subsidiary of a non-EU firm, keeps infrastructure and data in the EU. Foreign-controlled providers must guarantee no duty to report unpatched vulnerabilities to a third country.</span></div>
+          <div class="level"><span class="lname">L2</span><span class="ltxt">Substantial sovereignty. Third-country ownership still allowed, but all operations, infrastructure, personnel and support sit strictly within the EU. No foreign data access, no remote kill-switch, no coerced sanctions compliance.</span></div>
+          <div class="level top"><span class="lname">L3</span><span class="ltxt">High sovereignty. Third-country control prohibited by default. Owned and controlled from within the EU, with Union-citizen personnel. The Commission may, by exception, recognise an associated third country.</span></div>
+          <div class="level top"><span class="lname">L4</span><span class="ltxt">Maximum autonomy. Third-country control banned outright, with no associated-third-country exception. Highest cybersecurity certificate, plus full control over the software supply chain with no third-country influence.</span></div>
+          <p class="note">Levels are set per workload by a member-state or Union-entity risk assessment, with L1 the default; the Commission expects only about 10 percent of public-sector cases to need L3 or L4. SEAL's levels map onto these four tiers. CADA is a proposal, with adoption targeted for late 2027, so this is the current draft.</p>
+        </div>
+      </div>
     </section>
 
     <section class="tier measure">
@@ -299,17 +314,21 @@ footer a{color:var(--bl-tx);}
 
 <script>
 (function(){
-  var btn=document.getElementById('seal-toggle');
-  var panel=document.getElementById('seal-layers');
-  var chev=document.getElementById('seal-chev');
-  if(!btn||!panel){return;}
-  panel.style.display='none';
-  btn.addEventListener('click',function(){
-    var open=panel.style.display!=='none';
-    panel.style.display=open?'none':'block';
-    btn.setAttribute('aria-expanded',open?'false':'true');
-    if(chev){chev.style.transform=open?'rotate(0deg)':'rotate(180deg)';}
-  });
+  function wire(btnId, panelId, chevId){
+    var btn=document.getElementById(btnId);
+    var panel=document.getElementById(panelId);
+    var chev=document.getElementById(chevId);
+    if(!btn||!panel){return;}
+    panel.style.display='none';
+    btn.addEventListener('click',function(){
+      var open=panel.style.display!=='none';
+      panel.style.display=open?'none':'block';
+      btn.setAttribute('aria-expanded',open?'false':'true');
+      if(chev){chev.style.transform=open?'rotate(0deg)':'rotate(180deg)';}
+    });
+  }
+  wire('seal-toggle','seal-layers','seal-chev');
+  wire('cada-toggle','cada-layers','cada-chev');
 })();
 </script>
 </body>
