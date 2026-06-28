@@ -108,12 +108,25 @@ h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,5vw,46px);line-
 .anote{font-size:13px;color:var(--tm);margin:0;line-height:1.5;}
 .anote b{color:var(--hl-tx);font-weight:500;}
 
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.rlh{margin-bottom:12px;}
+.rlt{font-size:17px;font-weight:600;margin:0;}
+.rls{font-size:13px;color:var(--tm);margin:2px 0 8px;}
+.acard.rdir{border-top:3px solid #d99a3c;}
+.acard.rreg{border-top:3px solid #3a9d78;}
+.rch{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;}
+.rcn{font-size:16px;font-weight:600;}
+.rtwin{text-align:center;font-size:12px;color:var(--tm);margin:9px 0;}
+.rfoot{margin-top:16px;background:var(--inset);border-radius:12px;padding:14px 16px;font-size:14px;color:var(--ts);line-height:1.55;}
+.rfoot b{color:var(--bl-tx);font-weight:500;}
+
 footer{margin-top:48px;padding-top:22px;border-top:1px solid var(--bd);
   font-size:13px;color:var(--tm);line-height:1.6;}
 footer a{color:var(--bl-tx);}
 @media (max-width:600px){
   .wrap{padding:44px 18px 60px;}
   .stack{padding-left:0;} .stack::before{display:none;} .tier::before{display:none;}
+  .rgrid{grid-template-columns:1fr;}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;}}
 </style>
@@ -243,6 +256,41 @@ footer a{color:var(--bl-tx);}
       <p class="anote"><b>Note:</b> adjacent, but CADA borrows its "AI system" definition. Relevant once a platform hosts AI workloads.</p>
     </div>
   </div>
+
+  <p class="adj-h">Two directives and one regulation, and why the difference bites</p>
+  <div class="rgrid">
+    <div>
+      <div class="rlh">
+        <p class="rlt">Directives</p>
+        <p class="rls">each member state must write them into national law</p>
+        <span class="pill am">Transposition still incomplete in mid-2026</span>
+      </div>
+      <div class="acard rdir">
+        <div class="rch"><span class="rcn">NIS2</span><span class="pill am" style="font-size:11px;">Needs transposition</span></div>
+        <p class="ar">Directive (EU) 2022/2555</p>
+        <p class="adesc" style="margin:6px 0 0;">Cybersecurity baseline across 18 critical sectors.</p>
+      </div>
+      <p class="rtwin">cyber and physical halves, same sectors</p>
+      <div class="acard rdir">
+        <div class="rch"><span class="rcn">CER</span><span class="pill am" style="font-size:11px;">Needs transposition</span></div>
+        <p class="ar">Directive (EU) 2022/2557</p>
+        <p class="adesc" style="margin:6px 0 0;">Physical and all-hazards resilience of the same critical entities.</p>
+      </div>
+    </div>
+    <div>
+      <div class="rlh">
+        <p class="rlt">Regulation</p>
+        <p class="rls">applies directly, identical in all 27 states</p>
+        <span class="pill gn">Live since 17 Jan 2025</span>
+      </div>
+      <div class="acard rreg">
+        <div class="rch"><span class="rcn">DORA</span><span class="pill gn" style="font-size:11px;">No transposition needed</span></div>
+        <p class="ar">Regulation (EU) 2022/2554</p>
+        <p class="adesc" style="margin:6px 0 0;">Digital operational resilience for finance: ICT risk, third-party oversight, resilience testing.</p>
+      </div>
+    </div>
+  </div>
+  <div class="rfoot"><b>How they fit:</b> NIS2 and CER are the cyber and physical halves of one resilience regime over the same sectors. For finance, DORA applies in place of NIS2's ICT rules rather than on top of them. The practical catch: a directive only bites where a country has written it into national law, so coverage is patchy, while a regulation bites everywhere at once.</div>
 
   <footer>
     <p>Compiled from the European Commission Cloud Sovereignty Framework and the Cloud and AI Development Act proposal of 3 June 2026. CADA is a legislative proposal and its final form may change in trilogue. SEAL levels and SOV weightings reflect the framework as applied to the April 2026 Commission award. Last reviewed 28 June 2026.</p>
