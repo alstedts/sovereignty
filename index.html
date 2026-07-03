@@ -171,10 +171,10 @@ footer a{color:var(--bl-tx);}
         </button>
         <div class="dpanel" id="cada-layers">
           <p class="dh">Four Union assurance levels</p>
-          <div class="level"><span class="lname">L1</span><span class="ltxt">Baseline. An EU entity, which may be the EU subsidiary of a non-EU firm, keeps infrastructure and data in the EU. Foreign-controlled providers must guarantee no duty to report unpatched vulnerabilities to a third country.</span></div>
-          <div class="level"><span class="lname">L2</span><span class="ltxt">Substantial sovereignty. Third-country ownership still allowed, but all operations, infrastructure, personnel and support sit strictly within the EU. No foreign data access, no remote kill-switch, no coerced sanctions compliance.</span></div>
-          <div class="level top"><span class="lname">L3</span><span class="ltxt">High sovereignty. Third-country control prohibited by default. Owned and controlled from within the EU, with Union-citizen personnel. The Commission may, by exception, recognise an associated third country.</span></div>
           <div class="level top"><span class="lname">L4</span><span class="ltxt">Maximum autonomy. Third-country control banned outright, with no associated-third-country exception. Highest cybersecurity certificate, plus full control over the software supply chain with no third-country influence.</span></div>
+          <div class="level top"><span class="lname">L3</span><span class="ltxt">High sovereignty. Third-country control prohibited by default. Owned and controlled from within the EU, with Union-citizen personnel. The Commission may, by exception, recognise an associated third country.</span></div>
+          <div class="level"><span class="lname">L2</span><span class="ltxt">Substantial sovereignty. Third-country ownership still allowed, but all operations, infrastructure, personnel and support sit strictly within the EU. No foreign data access, no remote kill-switch, no coerced sanctions compliance.</span></div>
+          <div class="level"><span class="lname">L1</span><span class="ltxt">Baseline. An EU entity, which may be the EU subsidiary of a non-EU firm, keeps infrastructure and data in the EU. Foreign-controlled providers must guarantee no duty to report unpatched vulnerabilities to a third country.</span></div>
           <p class="note">Levels are set per workload by a member-state or Union-entity risk assessment, with L1 the default; the Commission expects only about 10 percent of public-sector cases to need L3 or L4. SEAL's levels map onto these four tiers. CADA is a proposal, with adoption targeted for late 2027, so this is the current draft.</p>
         </div>
       </div>
@@ -206,11 +206,11 @@ footer a{color:var(--bl-tx);}
         </button>
         <div class="dpanel" id="seal-layers">
           <p class="dh">Five assurance levels</p>
-          <div class="level"><span class="lname">SEAL-0</span><span class="ltxt">No sovereignty. Full dependence on third countries, no protection from extraterritorial intervention.</span></div>
-          <div class="level"><span class="lname">SEAL-1</span><span class="ltxt">Jurisdiction. EU law applies to the contract, but technical control stays external.</span></div>
-          <div class="level thr"><span class="lname">SEAL-2</span><span class="ltxt">Data sovereignty. Data and key management in EU hands. Tender minimum threshold.</span></div>
-          <div class="level"><span class="lname">SEAL-3</span><span class="ltxt">Digital resilience. Immune to disruption from non-EU supply chains, EU staff can run it independently.</span></div>
           <div class="level top"><span class="lname">SEAL-4</span><span class="ltxt">Full digital sovereignty. Complete EU supply chain, chip to software, no third-country dependency. Equivalent to CADA Level 4.</span></div>
+          <div class="level"><span class="lname">SEAL-3</span><span class="ltxt">Digital resilience. Immune to disruption from non-EU supply chains, EU staff can run it independently.</span></div>
+          <div class="level thr"><span class="lname">SEAL-2</span><span class="ltxt">Data sovereignty. Data and key management in EU hands. Tender minimum threshold.</span></div>
+          <div class="level"><span class="lname">SEAL-1</span><span class="ltxt">Jurisdiction. EU law applies to the contract, but technical control stays external.</span></div>
+          <div class="level"><span class="lname">SEAL-0</span><span class="ltxt">No sovereignty. Full dependence on third countries, no protection from extraterritorial intervention.</span></div>
 
           <p class="dh" style="margin-top:20px;">Eight SOV objectives, weighted to 100 percent</p>
           <div class="sov key"><div class="sovhd"><span class="nm">SOV-5 Supply chain</span><span class="wt">20%</span></div><div class="track"><div class="bar" style="width:100%"></div></div></div>
@@ -248,30 +248,6 @@ footer a{color:var(--bl-tx);}
 
   </div>
 
-  <p class="adj-h">Adjacent instruments you will keep bumping into</p>
-  <div class="adjgrid">
-    <div class="acard">
-      <div class="atop"><div><p class="an">EUCS</p><p class="ar">ENISA cloud certification scheme</p></div><span class="pill am">Stalled</span></div>
-      <p class="adesc">Certification under the Cybersecurity Act, Basic to High tiers.</p>
-      <p class="anote"><b>Note:</b> the sovereignty fight that paralysed it has moved into CADA, which aligns with and effectively supersedes it at the top tiers.</p>
-    </div>
-    <div class="acard">
-      <div class="atop"><div><p class="an">DORA</p><p class="ar">Regulation (EU) 2022/2554</p></div><span class="pill gn">17 Jan 2025</span></div>
-      <p class="adesc">Operational resilience for finance: ICT risk, third-party oversight, resilience testing.</p>
-      <p class="anote"><b>Note:</b> sits on top of NIS2 for financial entities. The third-party oversight regime is where cloud ownership questions surface.</p>
-    </div>
-    <div class="acard">
-      <div class="atop"><div><p class="an">SecNumCloud</p><p class="ar">France, ANSSI</p></div><span class="pill gn">National</span></div>
-      <p class="adesc">National qualification with hard immunity-from-extraterritorial-law requirements.</p>
-      <p class="anote"><b>Note:</b> the genetic ancestor of CADA's four-level logic. Several European providers already hold the qualification.</p>
-    </div>
-    <div class="acard">
-      <div class="atop"><div><p class="an">AI Act</p><p class="ar">Regulation (EU) 2024/1689</p></div><span class="pill gn">Phasing</span></div>
-      <p class="adesc">Risk-based governance of AI systems, applying in stages to 2027.</p>
-      <p class="anote"><b>Note:</b> adjacent, but CADA borrows its "AI system" definition. Relevant once a platform hosts AI workloads.</p>
-    </div>
-  </div>
-
   <p class="adj-h">Two directives and one regulation, and why the difference bites</p>
   <div class="rgrid">
     <div>
@@ -306,6 +282,30 @@ footer a{color:var(--bl-tx);}
     </div>
   </div>
   <div class="rfoot"><b>How they fit:</b> NIS2 and CER are the cyber and physical halves of one resilience regime over the same sectors. For finance, DORA applies in place of NIS2's ICT rules rather than on top of them. The practical catch: a directive only bites where a country has written it into national law, so coverage is patchy, while a regulation bites everywhere at once.</div>
+
+  <p class="adj-h">Adjacent instruments you will keep bumping into</p>
+  <div class="adjgrid">
+    <div class="acard">
+      <div class="atop"><div><p class="an">EUCS</p><p class="ar">ENISA cloud certification scheme</p></div><span class="pill am">Stalled</span></div>
+      <p class="adesc">Certification under the Cybersecurity Act, Basic to High tiers.</p>
+      <p class="anote"><b>Note:</b> the sovereignty fight that paralysed it has moved into CADA, which aligns with and effectively supersedes it at the top tiers.</p>
+    </div>
+    <div class="acard">
+      <div class="atop"><div><p class="an">DORA</p><p class="ar">Regulation (EU) 2022/2554</p></div><span class="pill gn">17 Jan 2025</span></div>
+      <p class="adesc">Operational resilience for finance: ICT risk, third-party oversight, resilience testing.</p>
+      <p class="anote"><b>Note:</b> sits on top of NIS2 for financial entities. The third-party oversight regime is where cloud ownership questions surface.</p>
+    </div>
+    <div class="acard">
+      <div class="atop"><div><p class="an">SecNumCloud</p><p class="ar">France, ANSSI</p></div><span class="pill gn">National</span></div>
+      <p class="adesc">National qualification with hard immunity-from-extraterritorial-law requirements.</p>
+      <p class="anote"><b>Note:</b> the genetic ancestor of CADA's four-level logic. Several European providers already hold the qualification.</p>
+    </div>
+    <div class="acard">
+      <div class="atop"><div><p class="an">AI Act</p><p class="ar">Regulation (EU) 2024/1689</p></div><span class="pill gn">Phasing</span></div>
+      <p class="adesc">Risk-based governance of AI systems, applying in stages to 2027.</p>
+      <p class="anote"><b>Note:</b> adjacent, but CADA borrows its "AI system" definition. Relevant once a platform hosts AI workloads.</p>
+    </div>
+  </div>
 
   <footer>
     <p>Compiled from the European Commission Cloud Sovereignty Framework and the Cloud and AI Development Act proposal of 3 June 2026. CADA is a legislative proposal and its final form may change in trilogue. SEAL levels and SOV weightings reflect the framework as applied to the April 2026 Commission award. Last reviewed 28 June 2026.</p>
